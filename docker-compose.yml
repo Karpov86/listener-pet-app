@@ -1,0 +1,13 @@
+version: '3'
+services:
+  pet-app:
+    image: listener-pet-app
+    ports:
+      - "8081:8081"
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:19092
+      SPRING_PROFILES_ACTIVE: default
+    depends_on:
+      - kafka
+      - zookeeper
+      - mongo
